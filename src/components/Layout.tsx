@@ -21,7 +21,7 @@ const Layout = ({ children, data, selectedKey, setSelectedKey, setCollapsed, col
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <CircularProgress />
+        <div className='spinner' ></div>
       </Box>
     );
   }

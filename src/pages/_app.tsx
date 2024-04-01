@@ -112,6 +112,7 @@ import { useState, useEffect } from 'react';
 import '../styles/globals.css'; 
 import ScrollToTop from '~/components/ScrollToTop';
 import AppFooter from '~/components/Footer';
+import Head from 'next/head';
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
   const [data, setData] = useState([]);
@@ -143,6 +144,9 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
           setCollapsed={setCollapsed}
           collapsed={collapsed}
         >
+          <Head>
+            <title>Swarthmore A11yGator</title>
+          </Head>
           <Component {...pageProps} data={data} selectedKey={selectedKey} setSelectedKey={setSelectedKey} setCollapsed={setCollapsed} />
         </Layout>
       </ThemeProvider>

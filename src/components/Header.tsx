@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { AppBar, Toolbar, IconButton, Box, Avatar, Button } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Box, Avatar, Button, Tooltip } from '@mui/material';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import LogoutIcon from '@mui/icons-material/Logout'; // Import Logout icon
 import Image from 'next/image';
@@ -58,7 +58,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onSearch, jsonData }) => {
 
     {/* Theme Toggle */}
     <div tabIndex={0} className="focus:outline-red-800">
-      <ThemeToggle colorMode={colorMode} setColorMode={setColorMode} />
+      
+
+          <ThemeToggle colorMode={colorMode} setColorMode={setColorMode} />
     </div>
 
     {/* Profile Icon */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip } from '@mui/material';
 
 interface DarkModeToggleProps {
     colorMode: string;
@@ -12,6 +13,11 @@ interface DarkModeToggleProps {
         setColorMode(colorMode === "light" ? "dark" : "light");
     };
   return (
+    <Tooltip
+        title={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
+        placement="bottom"
+        className='z-50'
+        arrow >
     <div  >
       <input
         type="checkbox"
@@ -58,6 +64,7 @@ interface DarkModeToggleProps {
         <div className="background"></div>
       </label>
     </div>
+    </Tooltip>
   );
 };
 

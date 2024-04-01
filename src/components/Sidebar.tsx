@@ -42,44 +42,43 @@ const Sidebar = ({ data, selectedKey, setSelectedKey, collapsed, handleDrawerTog
     <Drawer
       variant="persistent"
       open={!collapsed}
-      className={`m-4 overflow-hidden transition-width duration-300 ease-in-out`}
-      PaperProps={{ className: `h-full w-[280px] box-border overflow-auto` }}
+      className={`m-4 overflow-hidden transition-width duration-300 ease-in-out dark:bg-slate-800`}
+      PaperProps={{ className: `h-full w-[280px] box-border overflow-auto dark:bg-slate-800` }}
     >
-        <div className='sticky top-0 bg-white z-30 flex' >
-            <Tooltip title="Close Sidebar" placement="right">
-      <IconButton
-        onClick={handleDrawerToggle}
-        aria-label="Close navigation"
-        className=" sticky top-0 bg-white z-30 justify-center mx-auto my-4 focus:outline focus:outline-2 focus:outline-[#b43135]"
-      >
-        <ChevronLeftIcon />
-      </IconButton>
-            </Tooltip>
+      <div className='sticky top-0 bg-white dark:bg-slate-700 z-30 flex'>
+          <Tooltip title="Close Sidebar" placement="right">
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="Close navigation"
+              className="sticky top-0 bg-white dark:text-white dark:bg-slate-700 z-30 justify-center mx-auto my-4 focus:outline focus:outline-2 focus:outline-[#b43135] dark:focus:outline-gray-300"
+            >
+              <ChevronLeftIcon />
+            </IconButton>
+          </Tooltip>
       </div>
       <List>
         {data.map((course, index) => {
           const isSelected = selectedKey === `${index + 1}`;
           const key = `${index + 1}`;
-
+  
           return (
-
-              <ListItem
-                button
-                ref={(el) => itemRefs.current[index] = el}
-                onClick={() => handleListItemClick(course.name, key)}
-                className={`rounded ${isSelected ? 'bg-[#b43135]' : 'bg-transparent'} ${isSelected && 'text-white' } focus:bg-[#b43135] focus:text-white hover:text-blue-950` }
-              >
-                <ListItemIcon className="min-w-0 mr-2">
-                  <FolderOpenIcon className={`${isSelected ? 'text-white' : 'text-gray-700'}`} />
-                </ListItemIcon>
-                {!collapsed && <ListItemText primary={course.name} primaryTypographyProps={{ className: `${isSelected ? 'text-white' : 'text-gray-700'}` }} />}
-              </ListItem>
-
+            <ListItem
+              button
+              ref={(el) => itemRefs.current[index] = el}
+              onClick={() => handleListItemClick(course.name, key)}
+              className={`rounded ${isSelected ? 'bg-[#b43135]' : 'bg-transparent dark:bg-transparent'} ${isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-200'} hover:bg-[#b43135] hover:text-white dark:hover:bg-slate-600 focus:ring-2 focus:ring-[#b43135] dark:focus:ring-gray-300`}
+            >
+              <ListItemIcon className="min-w-0 mr-2">
+                <FolderOpenIcon className={`${isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-200'}`} />
+              </ListItemIcon>
+              {!collapsed && <ListItemText primary={course.name} primaryTypographyProps={{ className: `${isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-200'}` }} />}
+            </ListItem>
           );
         })}
       </List>
     </Drawer>
   );
+  
 };
 
 export default Sidebar;
