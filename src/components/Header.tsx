@@ -57,9 +57,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onSearch, jsonData }) => {
     </div>
 
     {/* Theme Toggle */}
-    <div tabIndex={0} className="focus:outline-red-800">
-      
-
+    <div className="focus:outline-red-800">
           <ThemeToggle colorMode={colorMode} setColorMode={setColorMode} />
     </div>
 

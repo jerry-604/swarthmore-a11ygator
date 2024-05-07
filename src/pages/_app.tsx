@@ -113,6 +113,7 @@ import '../styles/globals.css';
 import ScrollToTop from '~/components/ScrollToTop';
 import AppFooter from '~/components/Footer';
 import Head from 'next/head';
+import { api } from "~/utils/api";
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
   const [data, setData] = useState([]);
@@ -153,5 +154,4 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
     </SessionProvider>
   );
 };
-
-export default MyApp;
+export default api.withTRPC(MyApp);
