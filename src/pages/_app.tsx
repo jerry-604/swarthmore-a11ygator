@@ -119,11 +119,14 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
   const [data, setData] = useState([]);
   const [selectedKey, setSelectedKey] = useState('1');
   const [collapsed, setCollapsed] = useState(false);
+  const storageUrl = 'https://pub-0005d47013ea4269a6f7ec909e1ca3ff.r2.dev';
+  const dataUrl = `${storageUrl}/data.json`;
+  // const url = 'https://pub-0406c68e752f4eed89ba40aeef7732ed.r2.dev/data.json';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/data.json');
+        const response = await axios.get(dataUrl);
         setData(response.data.children);
       } catch (error) {
         console.error('Failed to fetch data:', error);

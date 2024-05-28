@@ -17,14 +17,14 @@ const HTMLViewer = () => {
   const contentRef = useRef(null);  // Reference to the div that holds the HTML content
   const router = useRouter();
   const { course, courseFolder, fileName } = router.query as { course: string; courseFolder?: string; fileName: string };
+  const storageUrl = 'https://pub-0005d47013ea4269a6f7ec909e1ca3ff.r2.dev';
 
   useEffect(() => {
     if (!router.isReady) return;
     setLoading(true);
 
-    const url = courseFolder
-      ? `https://pub-0406c68e752f4eed89ba40aeef7732ed.r2.dev/${course}/${courseFolder}/${fileName}`
-      : `/data/${course}/${fileName}`;
+
+    const url = `${storageUrl}/${course}/${courseFolder}/${fileName}`;
 
     axios.get(url)
       .then((res) => {
@@ -34,7 +34,7 @@ const HTMLViewer = () => {
         // Adjust image paths
         $('img').each(function () {
             const oldSrc = $(this).attr('src');
-            const newSrc = `https://pub-0406c68e752f4eed89ba40aeef7732ed.r2.dev/${course}/${courseFolder}/${oldSrc}`;
+            const newSrc = `${storageUrl}/${course}/${courseFolder}/${oldSrc}`;
             $(this).attr('src', newSrc);
         });
 
