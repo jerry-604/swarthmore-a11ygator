@@ -1,29 +1,44 @@
-# Create T3 App
+# How to Edit the Next.js Website
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Step 1: Download the Current A11y Files
 
-## What's next? How do I make an app with this?
+1. Clone the repository containing the current A11y files:
+    ```sh
+    git clone https://github.com/jerry-604/a11y_files.git
+    ```
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Step 2: Add Files to the Custom Swarthmore Server or Any Storage Bucket
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+1. Upload the files from the cloned repository to the custom Swarthmore server or any preferred storage bucket.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Step 3: Edit the Website
 
-## Learn More
+1. Clone the Next.js website repository:
+    ```sh
+    git clone https://github.com/Swarthmore/a11y-doc-repo.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd a11y-doc-repo
+    ```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Step 4: Update the Storage URL
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Open the file `/a11ygator-next/src/components/HTMLViewer.tsx` and update the `storageUrl` on line 20 with the new link to the storage bucket.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+2. Open the file `/a11ygator-next/src/pages/_app.tsx` and update the `storageUrl` on line 122 with the new link to the storage bucket.
 
-## How do I deploy this?
+## Step 5: Push Changes to Production
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+1. Stage and commit your changes:
+    ```sh
+    git add .
+    git commit -m "Updated storageUrl with new link to the storage bucket"
+    ```
+
+2. Push the changes to the production branch:
+    ```sh
+    git push origin main
+    ```
+
+
