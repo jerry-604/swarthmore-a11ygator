@@ -15,7 +15,7 @@
 
 1. Clone the Next.js website repository:
     ```sh
-    git clone https://github.com/Swarthmore/a11y-doc-repo.git
+    [git clone https://github.com/Swarthmore/a11y-doc-repo.git](https://github.com/jerry-604/swarthmore-a11ygator.git)
     ```
 2. Navigate to the project directory:
     ```sh
